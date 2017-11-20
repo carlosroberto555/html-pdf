@@ -12,5 +12,10 @@
             "email": "carlos.junior@vertexgroup.com.br"
         }
     ],
-    "minimum-stability": "stable"
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "HtmlPDF\\":"src/"
+        }
+    }
 }
