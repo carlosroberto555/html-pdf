@@ -1,0 +1,15 @@
+{
+    "name": "carlos/html-pdf",
+    "description": "Create a PDF using an HTML file template",
+    "type": "library",
+    "require": {
+        "mpdf/mpdf": "^7.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Carlos Roberto",
+            "email": "carlos.junior@vertexgroup.com.br"
+        }
+    ]
+}
