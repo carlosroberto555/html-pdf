@@ -5,6 +5,7 @@
     "require": {
         "mpdf/mpdf": "^7.0"
     },
+    "minimum-stability": "dev",
     "license": "MIT",
     "authors": [
         {
