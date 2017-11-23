@@ -7,9 +7,9 @@ class HtmlPDF
 	private $template;
 	private $pdf;
 
-	function __construct($template)
+	function __construct($template, array $config)
 	{
-		$this->pdf = new \Mpdf\Mpdf();
+		$this->pdf = new \Mpdf\Mpdf($config);
 		$this->template = file_get_contents($template);
 	}
 
