@@ -7,7 +7,7 @@ class HtmlPDF
 	private $template;
 	private $pdf;
 
-	function __construct($template, array $config = [])
+	function __construct($template, $config = [])
 	{
 		$this->pdf = new \Mpdf\Mpdf($config);
 		$this->template = file_get_contents($template);
@@ -55,7 +55,7 @@ class HtmlPDF
 	/**
 	 * Substitui os campos correspondentes ao array associativo
 	 */
-	private function set_array(&$template, array $array)
+	private function set_array(&$template, $array)
 	{
 		$keys = array_keys($array);
 		$values = array_values($array);
@@ -109,7 +109,7 @@ class HtmlPDF
 	/**
 	 * Mostra o documento em formato HTML
 	 */
-	public function print()
+	public function show()
 	{
 		echo $this->template;
 	}
