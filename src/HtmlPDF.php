@@ -7,7 +7,7 @@ class HtmlPDF
 	private $template;
 	private $pdf;
 
-	function __construct($template, array $config)
+	function __construct($template, array $config = [])
 	{
 		$this->pdf = new \Mpdf\Mpdf($config);
 		$this->template = file_get_contents($template);
@@ -28,7 +28,7 @@ class HtmlPDF
 	 * $item == Array (chama $this->set_array())
 	 * $item == String (transforma em array e chama recursivamente)
 	 */
-	private function set_template(string &$template, $item, $value='')
+	private function set_template(&$template, $item, $value='')
 	{
 		if (is_array($item)) {
 
@@ -55,7 +55,7 @@ class HtmlPDF
 	/**
 	 * Substitui os campos correspondentes ao array associativo
 	 */
-	private function set_array(string &$template, array $array)
+	private function set_array(&$template, array $array)
 	{
 		$keys = array_keys($array);
 		$values = array_values($array);
@@ -111,7 +111,7 @@ class HtmlPDF
 	 */
 	public function print()
 	{
-		print($this->template);
+		echo $this->template;
 	}
 
 	/**
@@ -126,7 +126,7 @@ class HtmlPDF
 	/**
 	 * Escreve o documento e salva no caminho informado
 	 */
-	public function save(string $path)
+	public function save($path)
 	{
 		$this->pdf->WriteHTML($this->template);
 		$this->pdf->Output($path, \Mpdf\Output\Destination::FILE);
@@ -135,7 +135,7 @@ class HtmlPDF
 	/**
 	 * Escreve o documento e faz download
 	 */
-	public function download(string $name)
+	public function download($name)
 	{
 		$this->pdf->WriteHTML($this->template);
 		$this->pdf->Output($name, \Mpdf\Output\Destination::DOWNLOAD);
